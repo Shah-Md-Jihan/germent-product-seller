@@ -90,7 +90,10 @@
 					<!-- Logo -->
 					<div class="col-lg-2 col-sm-3 col-3 order-1">
 						<div class="logo_container">
-							<div class="logo"><a href="#">OneTech</a></div>
+							{{-- <img src="" alt=""> --}}
+							<img src="{{ asset('frontend_assets') }}/images/logo.png" style="width:150px" alt="">
+							<span style="margin-left: 24px;font-size:18px; font-weight:bold">GTA Seller</span>
+							{{-- <div class="logo"><a href="#">OneTech</a></div> --}}
 						</div>
 					</div>
 
@@ -194,7 +197,9 @@
       <div class="col-lg-3 footer_col">
         <div class="footer_column footer_contact">
           <div class="logo_container">
-            <div class="logo"><a href="#">OneTech</a></div>
+			
+            <div class="logo"><a href="#">GTA Seller</a></div>
+			
           </div>
           <div class="footer_title">Got Question? Call Us 24/7</div>
           <div class="footer_phone">+38 068 005 3570</div>

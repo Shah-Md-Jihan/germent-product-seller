@@ -44,13 +44,19 @@
                   <div class="form-group">
                     <label class="form-control-label">Product Name: <span class="tx-danger">*</span></label>
                     <input class="form-control" type="text" name="product_name" placeholder="Enter firstname">
+                    @error ('product_name')
+                        <strong class="text-danger">{{ $message }}</strong>
+                    @enderror
                   </div>
                 </div><!-- col-4 -->
                 
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label">Quantity: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="quantity"  placeholder="Enter email address">
+                    <input class="form-control" type="number" name="quantity"  placeholder="Enter email address">
+                    @error ('quantity')
+                        <strong class="text-danger">{{ $message }}</strong>
+                    @enderror
                   </div>
                 </div><!-- col-4 -->
 
@@ -63,24 +69,20 @@
                         <option value="{{ $category->id }}">{{ Str::title($category->category_name) }}</option>
                       @endforeach
                     </select>
+                    @error ('category_id')
+                        <strong class="text-danger">{{ $message }}</strong>
+                    @enderror
                   </div>
                 </div><!-- col-4 -->
                 
-                <div class="col-lg-4">
-                  <div class="form-group mg-b-10-force">
-                    <label class="form-control-label">Brand: <span class="tx-danger">*</span></label>
-                    <select class="form-control select2" name="brand_id" data-placeholder="Choose country">
-                      <option label="Choose brand" selected disabled></option>
-                      @foreach ($brands as $brand)
-                        <option value="{{ $brand->id }}">{{ Str::title($brand->brand_name) }}</option>
-                      @endforeach
-                    </select>
-                  </div>
-                </div><!-- col-4 -->
+                
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label">Product Size: <span class="tx-danger">*</span></label>
                     <input class="form-control" id="size" type="text" name="size" data-role="tagsinput">
+                    @error ('size')
+                        <strong class="text-danger">{{ $message }}</strong>
+                    @enderror
                   </div>
                 </div><!-- col-4 -->
 
@@ -88,6 +90,9 @@
                   <div class="form-group">
                     <label class="form-control-label">Product Color: <span class="tx-danger">*</span></label>
                     <input class="form-control" type="text" name="color" placeholder="Enter lastname">
+                    @error ('color')
+                        <strong class="text-danger">{{ $message }}</strong>
+                    @enderror
                   </div>
                 </div><!-- col-4 -->
               </div><!-- row -->
@@ -96,6 +101,9 @@
                   <div class="form-group">
                     <label class="form-control-label">Selling Price: <span class="tx-danger">*</span></label>
                     <input class="form-control" type="text" name="selling_price"  placeholder="Enter email address">
+                    @error ('selling_price')
+                        <strong class="text-danger">{{ $message }}</strong>
+                    @enderror
                   </div>
                 </div><!-- col-4 -->
 
@@ -104,6 +112,9 @@
                     <label class="form-control-label">Product Details: <span class="tx-danger">*</span></label>
                     {{-- <input class="form-control" id="summernote" name="details"> --}}
                     <textarea class="form-control" name="details"></textarea>
+                    @error ('details')
+                        <strong class="text-danger">{{ $message }}</strong>
+                    @enderror
                   </div>
                 </div><!-- col-4 -->
                 
@@ -117,6 +128,9 @@
                       <img id="image_one">
                     </label>
                   </div>
+                  @error ('image1')
+                      <strong class="text-danger">{{ $message }}</strong>
+                  @enderror
                 </div><!-- col-4 -->
 
               </div><!-- row -->

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Newsletter;
 use App\Models\Category;
+use App\Models\Product;
 use Carbon\Carbon;
 
 class FrontendController extends Controller
@@ -13,6 +14,7 @@ class FrontendController extends Controller
   {
     return view('pages.index', [
       'categories' => Category::all(),
+      'products' => Product::latest()->limit(8)->get(),
     ]);
   }
   public function storenewslatter(Request $request)
