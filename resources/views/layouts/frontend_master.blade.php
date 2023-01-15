@@ -14,6 +14,9 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/plugins/slick-1.8.0/slick.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/cart_styles.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/cart_responsive.css">
+
 
 </head>
 
@@ -56,9 +59,6 @@
 							</div>
 							<div class="top_bar_user">
 								<div class="user_icon"><img src="{{ asset('frontend_assets') }}/images/user.svg" alt=""></div>
-								{{-- @if (Auth::user()->name === null) --}}
-								{{-- <div><a href="{{ route('admin.home') }}">Dashboard</a></div> --}}
-								{{-- @else --}}
 								<div><a href="{{ route('register') }}">Register</a></div>
 								<div><a href="{{ route('login') }}">Sign in</a></div>
 								{{-- @endif --}}
@@ -90,10 +90,12 @@
 					<!-- Logo -->
 					<div class="col-lg-2 col-sm-3 col-3 order-1">
 						<div class="logo_container">
-							{{-- <img src="" alt=""> --}}
-							<img src="{{ asset('frontend_assets') }}/images/logo.png" style="width:150px" alt="">
-							<span style="margin-left: 24px;font-size:18px; font-weight:bold">GTA Seller</span>
-							{{-- <div class="logo"><a href="#">OneTech</a></div> --}}
+							
+							<a href="{{ url('/') }}" >
+								<img src="{{ asset('frontend_assets') }}/images/logo.png" style="width:150px" alt="">
+								<span style="margin-left: 38px;font-size:18px; font-weight:bold;color:orangered">EOGAS</span>
+							</a>
+							
 						</div>
 					</div>
 
@@ -141,11 +143,23 @@
 								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
 									<div class="cart_icon">
 										<img src="{{ asset('frontend_assets') }}/images/cart.png" alt="">
-										<div class="cart_count"><span>10</span></div>
+										<div class="cart_count"><span>{{ App\Models\Cart::where('ip_address', request()->ip())->count() }}</span></div>
 									</div>
 									<div class="cart_content">
-										<div class="cart_text"><a href="#">Cart</a></div>
-										<div class="cart_price">$85</div>
+										<div class="cart_text"><a href="{{ route('cart') }}">Cart</a></div>
+										@php
+											App\Models\Cart::where('ip_address', request()->ip())->count();
+										@endphp
+										@php
+											$subtotal=0;
+										@endphp
+										@foreach (App\Models\Cart::where('ip_address', request()->ip())->get() as $price)
+											@php
+												$subtotal = $subtotal + $price->product_price * $price->product_quantity
+											@endphp
+											
+										@endforeach
+										<div class="cart_price">${{ $subtotal }}</div>
 									</div>
 								</div>
 							</div>
@@ -198,7 +212,7 @@
         <div class="footer_column footer_contact">
           <div class="logo_container">
 			
-            <div class="logo"><a href="#">GTA Seller</a></div>
+            <div class="logo"><a href="#">EOGAS</a></div>
 			
           </div>
           <div class="footer_title">Got Question? Call Us 24/7</div>
@@ -276,7 +290,7 @@
 
         <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
           <div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </div>
           <div class="logos ml-sm-auto">
@@ -293,7 +307,18 @@
   </div>
 </div>
 </div>
+<script>
+	function myFunction() {
+	var x = document.getElementById("categories");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+	}
+</script>
 
+	
 <script src="{{ asset('frontend_assets') }}/js/jquery-3.3.1.min.js"></script>
 <script src="{{ asset('frontend_assets') }}/styles/bootstrap4/popper.js"></script>
 <script src="{{ asset('frontend_assets') }}/styles/bootstrap4/bootstrap.min.js"></script>
@@ -306,6 +331,7 @@
 <script src="{{ asset('frontend_assets') }}/plugins/slick-1.8.0/slick.js"></script>
 <script src="{{ asset('frontend_assets') }}/plugins/easing/easing.js"></script>
 <script src="{{ asset('frontend_assets') }}/js/custom.js"></script>
+<script src="{{ asset('frontend_assets') }}/js/cart_custom.js"></script>
 </body>
 
 </html>

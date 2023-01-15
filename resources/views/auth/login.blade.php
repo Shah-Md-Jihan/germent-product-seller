@@ -71,6 +71,7 @@
 
         </form>
         <div class="mg-t-60 tx-center">Not yet a member? <a href={{ route('register') }} class="tx-info">Sign Up</a></div>
+        <div class="mg-t-60 tx-center"><a href={{ url('/') }} class="tx-info">Go to Home</a></div>
       </div><!-- login-wrapper -->
     </div><!-- d-flex -->
 

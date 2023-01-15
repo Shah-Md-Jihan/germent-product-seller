@@ -32,7 +32,7 @@
             <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
             <meta name="author" content="ThemePixels">
 
-            <title>Starlight Responsive Bootstrap 4 Admin Template</title>
+            <title>EOGAS Dashboard</title>
 
             <!-- vendor css -->
             <link href="{{ asset('backend_assets/lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
@@ -54,14 +54,8 @@
           <body>
 
             <!-- ########## START: LEFT PANEL ########## -->
-            <div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i> starlight</a></div>
+            <div class="sl-logo"><a href="">EOGAS</a></div>
             <div class="sl-sideleft">
-              <div class="input-group input-group-search">
-                <input type="search" name="search" class="form-control" placeholder="Search">
-                <span class="input-group-btn">
-                  <button class="btn"><i class="fa fa-search"></i></button>
-                </span><!-- input-group-btn -->
-              </div><!-- input-group -->
 
 
               <div class="sl-sideleft-menu">
@@ -325,13 +319,13 @@
 
       <footer class="sl-footer">
         <div class="footer-left">
-          <div class="mg-b-2">Copyright &copy; 2017. Starlight. All Rights Reserved.</div>
-          <div>Made by ThemePixels.</div>
+          <div class="mg-b-2">Copyright &copy; 2023. EOGAS. All Rights Reserved.</div>
+          
         </div>
         <div class="footer-right d-flex align-items-center">
           <span class="tx-uppercase mg-r-10">Share:</span>
-          <a target="_blank" class="pd-x-5" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//themepixels.me/starlight"><i class="fa fa-facebook tx-20"></i></a>
-          <a target="_blank" class="pd-x-5" href="https://twitter.com/home?status=Starlight,%20your%20best%20choice%20for%20premium%20quality%20admin%20template%20from%20Bootstrap.%20Get%20it%20now%20at%20http%3A//themepixels.me/starlight"><i class="fa fa-twitter tx-20"></i></a>
+          <a target="_blank" class="pd-x-5" href="#"><i class="fa fa-facebook tx-20"></i></a>
+          <a target="_blank" class="pd-x-5" href="#"><i class="fa fa-twitter tx-20"></i></a>
         </div>
       </footer>
     </div><!-- sl-mainpanel -->

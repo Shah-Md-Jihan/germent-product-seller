@@ -8,7 +8,8 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewslatterController;
 use App\Http\Controllers\ProductController;
-// use Auth;
+use App\Http\Controllers\CartController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,9 +21,7 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('pages.index');
-// });
+
 
 Auth::routes();
 // FrontendController Routes 
@@ -79,3 +78,9 @@ Route::post('add/product/post', [ProductController::class, 'addproductpost'])->n
 
 // get subcategory by ajax
 Route::get('get/subcategory/{category_id}', [ProductController::class, 'getSubcat']);
+
+
+// CartController Routes 
+
+Route::get('cart', [CartController::class, 'index'])->name('cart');
+Route::post('cart/post', [CartController::class, 'addtocart']);

@@ -122,7 +122,7 @@
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
 						<div class="char_icon"><img src="{{ asset('frontend_assets') }}/images/char_1.png" alt=""></div>
 						<div class="char_content">
-							<div class="char_title">Free Deliverykkkkk</div>
+							<div class="char_title">Free Delivery</div>
 							<div class="char_subtitle">from $50</div>
 						</div>
 					</div>
@@ -192,21 +192,28 @@
 									<div class="arrivals_slider slider">
 
 										<!-- Slider Item -->
-										@foreach ($products as $product)	
+										@foreach ($products as $product)
+										{{ $product->name }}	
 										<div class="arrivals_slider_item">
 											<div class="border_active"></div>
 											<div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
 												<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('uploads/product') }}/{{ $product->image1 }}" alt="" style="width: 150px;height:150px"></div>
+
 												<div class="product_content">
 													<div class="product_price">${{ $product->selling_price }}</div>
 													<div class="product_name"><div><a href="#">{{ $product->product_name }}</a></div></div>
+													<form action={{ url("cart/post") }} method="post" enctype="multipart/form-data">
+														@csrf
+														
+														<textarea style="display: none" name="pro_name">{{ $product->product_name }}</textarea>
+														<input type="hidden" name="pro_id" value={{ $product->id }} />
+														<input type="hidden" name="product_price" value={{ $product->selling_price }} />
+														<input type="hidden" name="quantity" value="1" />
+														<input type="hidden" name="product_image" value={{ $product->image1 }} />
+														<input type="submit" class="product_cart_button" value="Add to Cart">
+													</form>
 													<div class="product_extras">
-														<div class="product_color">
-															<input type="radio" checked name="product_color" style="background:#b19c83">
-															<input type="radio" name="product_color" style="background:#000000">
-															<input type="radio" name="product_color" style="background:#999999">
-														</div>
-														<button class="product_cart_button">Add to Cart</button>
+														
 													</div>
 												</div>
 												<div class="product_fav"><i class="fas fa-heart"></i></div>
