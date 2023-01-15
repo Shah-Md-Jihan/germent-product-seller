@@ -74,4 +74,9 @@ class ProductController extends Controller
     return back()->with('product_add_alert', 'Product info added successfully!');
   }
   // method addproductpost end
+
+  public function productsingle($product_id)
+  {
+    return view("pages.single_product");
+  }
 }

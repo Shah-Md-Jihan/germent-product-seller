@@ -201,7 +201,7 @@
 
 												<div class="product_content">
 													<div class="product_price">${{ $product->selling_price }}</div>
-													<div class="product_name"><div><a href="#">{{ $product->product_name }}</a></div></div>
+													<div class="product_name"><div><a href="{{ url('product/single') }}/{{ $product->id }}">{{ $product->product_name }}</a></div></div>
 													<form action={{ url("cart/post") }} method="post" enctype="multipart/form-data">
 														@csrf
 														

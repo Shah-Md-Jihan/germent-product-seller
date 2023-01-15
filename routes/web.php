@@ -74,6 +74,7 @@ Route::get('newsletter/delete/{newsletter_id}', [NewslatterController::class, 'n
 Route::get('add/product', [ProductController::class, 'addproduct'])->name('add.product');
 
 Route::post('add/product/post', [ProductController::class, 'addproductpost'])->name('productpost');
+Route::get('product/single/{product_id}', [ProductController::class, 'productsingle']);
 
 
 // get subcategory by ajax

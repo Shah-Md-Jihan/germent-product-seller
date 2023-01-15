@@ -16,6 +16,8 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/cart_styles.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/cart_responsive.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/product_styles.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/product_responsive.css">
 
 
 </head>
