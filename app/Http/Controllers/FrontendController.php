@@ -30,4 +30,10 @@ class FrontendController extends Controller
     ]);
     return back()->with('add_subcription_alert', "Thanks for subcribed!");
   }
+
+  public function productsingle($product_id)
+  {
+    $product_info = Product::find($product_id);
+    return view("pages.single_product", compact('product_info'));
+  }
 }

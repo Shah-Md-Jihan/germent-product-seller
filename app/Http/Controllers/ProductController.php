@@ -75,8 +75,5 @@ class ProductController extends Controller
   }
   // method addproductpost end
 
-  public function productsingle($product_id)
-  {
-    return view("pages.single_product");
-  }
+
 }

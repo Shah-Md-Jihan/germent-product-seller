@@ -334,6 +334,7 @@
 <script src="{{ asset('frontend_assets') }}/plugins/easing/easing.js"></script>
 <script src="{{ asset('frontend_assets') }}/js/custom.js"></script>
 <script src="{{ asset('frontend_assets') }}/js/cart_custom.js"></script>
+<script src="{{ asset('frontend_assets') }}/js/product_custom.js"></script>
 </body>
 
 </html>

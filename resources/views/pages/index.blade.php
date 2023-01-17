@@ -100,7 +100,7 @@
 				<div class="banner_product_image"><img src="{{ asset('frontend_assets') }}/images/gta-banner.png" alt=""></div>
 				<div class="col-lg-5 offset-lg-4 fill_height">
 					<div class="banner_content">
-						<h1 class="banner_text" style="padding-top: 20px">Welcome to GTA Seller!</h1>
+						<h1 class="banner_text" style="padding-top: 20px">Welcome to EOGAS</h1>
 						<div class="banner_price" style="color:#fff"><span>$530</span>$460</div>
 						<div class="banner_product_name" style="color:#fff">Latest Model Sweing Mechaine</div>
 						<div class="button banner_button"><a href="#">Shop Now</a></div>
@@ -167,97 +167,41 @@
 		</div>
 	</div>
 
-	
-
-	<!-- Hot New Arrivals -->
-
-	<div class="new_arrivals">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="tabbed_container">
-						<div class="tabs clearfix tabs-right">
-							<div class="new_arrivals_title">Our Latest Products</div>
-							<ul class="clearfix">
-								<li class="active"></li>
-								
-							</ul>
-							<div class="tabs_line"><span></span></div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12" style="z-index:1;">
-
-								<!-- Product Panel -->
-								<div class="product_panel panel active">
-									<div class="arrivals_slider slider">
-
-										<!-- Slider Item -->
-										@foreach ($products as $product)
-										{{ $product->name }}	
-										<div class="arrivals_slider_item">
-											<div class="border_active"></div>
-											<div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-												<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset('uploads/product') }}/{{ $product->image1 }}" alt="" style="width: 150px;height:150px"></div>
-
-												<div class="product_content">
-													<div class="product_price">${{ $product->selling_price }}</div>
-													<div class="product_name"><div><a href="{{ url('product/single') }}/{{ $product->id }}">{{ $product->product_name }}</a></div></div>
-													<form action={{ url("cart/post") }} method="post" enctype="multipart/form-data">
-														@csrf
-														
-														<textarea style="display: none" name="pro_name">{{ $product->product_name }}</textarea>
-														<input type="hidden" name="pro_id" value={{ $product->id }} />
-														<input type="hidden" name="product_price" value={{ $product->selling_price }} />
-														<input type="hidden" name="quantity" value="1" />
-														<input type="hidden" name="product_image" value={{ $product->image1 }} />
-														<input type="submit" class="product_cart_button" value="Add to Cart">
-													</form>
-													<div class="product_extras">
-														
-													</div>
-												</div>
-												<div class="product_fav"><i class="fas fa-heart"></i></div>
-												<ul class="product_marks">
-													<li class="product_mark product_discount">-25%</li>
-													<li class="product_mark product_new">new</li>
-												</ul>
-											</div>
-										</div>
-										@endforeach
-										
-									</div>
+	<div class="container">
+		<h3 class="mb-5 text-center text-primary">Our Latest Products</h3>
+		
+		<div class="row">
+			@foreach ($products as $product)
+			<div class="col-3 mb-5">
+				<div class="card">
+					<img src="{{ asset('uploads/product') }}/{{ $product->image1 }}" class="card-img-top p-2" style="height: 200px" alt="...">
+					<div class="card-body">
+					  <h4 class="card-title"><a href="{{ 'product/single' }}/{{ $product->id }}">{{ $product->product_name }}</a></h4>
+					  <p class="text-primary"><b>${{ $product->selling_price }}</b></p>
+					  <p class="card-text mb-3">{{ Str::limit($product->details, 50);
+					}}</p>
+					  <form action={{ url("cart/post") }} method="post" enctype="multipart/form-data">
+						@csrf		
+									<textarea style="display: none" name="pro_name">{{ $product->product_name }}</textarea>
+									<input type="hidden" name="pro_id" value={{ $product->id }} />
+									<input type="hidden" name="product_price" value={{ $product->selling_price }} />
 									
-								</div>
-
+									<input type="hidden" name="product_image" value={{ $product->image1 }} />
+									
 								
-
-								
-
-							</div>
-
-							
-
-						</div>
-
+								<input type="hidden" name="quantity" type="text" value="1">
+						
+								<input type="submit" class="btn btn-primary btn-block" value="Add To Cart" />
+					</form>
 					</div>
-				</div>
-			</div>
+				  </div>
+			</div>	
+			@endforeach
 		</div>
 	</div>
-
-	<!-- Best Sellers -->
-
 	
 
-	<!-- Adverts -->
-
 	
-
-	<!-- Trends -->
-
-	
-
-	<!-- Reviews -->
 
 	
 
