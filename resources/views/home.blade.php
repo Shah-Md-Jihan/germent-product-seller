@@ -1,26 +1,31 @@
-@extends('layouts.app')
+@extends('layouts.dashboard_master_client')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-          @if(session('error'))
-            <strong class="text-danger">{{ session('error') }}</strong>
-          @endif
-            <div class="card">
-                <div class="card-header">{{ __('User Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!YaY') }}
-                </div>
+@section('Category')
+  active
+@endsection
+@section('dashboard_content')
+    <!-- ########## START: MAIN PANEL ########## -->
+    <div class="sl-mainpanel">
+      <nav class="breadcrumb sl-breadcrumb">
+        <a class="breadcrumb-item" href="{{ url('home') }}">Dashboard</a>
+        
+      </nav>
+  <div class="sl-pagebody">
+      <div class="row row-sm">
+        <div class="col-8 m-auto">
+          <div class="card">
+            <div class="card-header bg-info text-white">
+                My Account
             </div>
+            <div class="card-body">
+              <p>Name: {{ Auth::user()->name }} <a href="#" class="ml-3">Edit</a></p>
+              <p>Email: {{ Auth::user()->email }} <a href="#" class="ml-3">Edit</a></p>
+              <p>Address: <a href="#" class="ml-3">Add+</a></p>
+
+               
+            </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div><!-- row -->
+  </div><!-- sl-pagebody -->
 @endsection
