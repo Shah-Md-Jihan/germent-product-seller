@@ -17,7 +17,7 @@
                                 $subtotal = 0;
                             @endphp
                             @foreach (App\Models\Cart::where('ip_address', request()->ip())->get() as $cart)
-                            <li class="cart_item clearfix">
+                            <li class="cart_item clearfix mb-4">
                                 <div class="cart_item_image"><img src="{{ asset('uploads/product') }}/{{ $cart->product_image }}" style="widht:50px" alt=""></div>
                                 <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
                                     <div class="cart_item_name cart_info_col">
@@ -31,19 +31,20 @@
                                     </div>
                                     <div class="cart_item_price cart_info_col">
                                         <div class="cart_item_title">Price</div>
-                                        <div class="cart_item_text">${{ $cart->product_price }}</div>
+                                        <div class="cart_item_text">৳ {{ $cart->product_price }}</div>
                                         
                                     </div>
                                     <div class="cart_item_total cart_info_col">
                                         <div class="cart_item_title">Total</div>
-                                        <div class="cart_item_text">${{ $cart->product_price * $cart->product_quantity }}</div>
+                                        <div class="cart_item_text">৳ {{ $cart->product_price * $cart->product_quantity }}</div>
 
                                         @php
                                             $subtotal = $subtotal + $cart->product_price * $cart->product_quantity
                                         @endphp
                                     </div>
                                 </div>
-                            </li>    
+                            </li>
+                                
                             @endforeach
                             
                         </ul>
@@ -53,7 +54,7 @@
                     <div class="order_total">
                         <div class="order_total_content text-md-right">
                             <div class="order_total_title">Order Total:</div>
-                            <div class="order_total_amount">${{ $subtotal }}</div>
+                            <div class="order_total_amount">৳ {{ $subtotal }}</div>
                         </div>
                     </div>
 

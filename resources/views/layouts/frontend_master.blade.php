@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>OneTech</title>
+<title>EOGAS</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="OneTech shop project">
@@ -18,8 +18,20 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/cart_responsive.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/product_styles.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/product_responsive.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/shop_styles.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets') }}/styles/shop_responsive.css">
 
+<style>
+	.shop_banner{
+		background-image: url('{{ asset('frontend_assets') }}/images/shop_background.png');
+		background-size: cover;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 250px;
+	}
 
+</style>
 </head>
 
 <body>
@@ -108,20 +120,7 @@
 								<div class="header_search_form_container">
 									<form action="#" class="header_search_form clearfix">
 										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
-										<div class="custom_dropdown">
-											<div class="custom_dropdown_list">
-												<span class="custom_dropdown_placeholder clc">All Categories</span>
-												<i class="fas fa-chevron-down"></i>
-												<ul class="custom_list clc">
-													<li><a class="clc" href="#">All Categories</a></li>
-													<li><a class="clc" href="#">Computers</a></li>
-													<li><a class="clc" href="#">Laptops</a></li>
-													<li><a class="clc" href="#">Cameras</a></li>
-													<li><a class="clc" href="#">Hardwareuuuuu</a></li>
-													<li><a class="clc" href="#">Smartphones</a></li>
-												</ul>
-											</div>
-										</div>
+										
 										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="{{ asset('frontend_assets') }}/images/search.png" alt=""></button>
 									</form>
 								</div>
@@ -161,7 +160,7 @@
 											@endphp
 											
 										@endforeach
-										<div class="cart_price">${{ $subtotal }}</div>
+										<div class="cart_price">৳ {{ $subtotal }}</div>
 									</div>
 								</div>
 							</div>
@@ -335,6 +334,11 @@
 <script src="{{ asset('frontend_assets') }}/js/custom.js"></script>
 <script src="{{ asset('frontend_assets') }}/js/cart_custom.js"></script>
 <script src="{{ asset('frontend_assets') }}/js/product_custom.js"></script>
+<script src="{{ asset('frontend_assets') }}js/shop_custom.js"></script>
+<script src="{{ asset('frontend_assets') }}plugins/parallax-js-master/parallax.min.js"></script>
+<script src="{{ asset('frontend_assets') }}plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="{{ asset('frontend_assets') }}plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+
 </body>
 
 </html>

@@ -177,7 +177,7 @@
 					<img src="{{ asset('uploads/product') }}/{{ $product->image1 }}" class="card-img-top p-2" style="height: 200px" alt="...">
 					<div class="card-body">
 					  <h4 class="card-title"><a href="{{ 'product/single' }}/{{ $product->id }}">{{ $product->product_name }}</a></h4>
-					  <p class="text-primary"><b>${{ $product->selling_price }}</b></p>
+					  <p class="text-primary"><b>৳ {{ $product->selling_price }}</b></p>
 					  <p class="card-text mb-3">{{ Str::limit($product->details, 50);
 					}}</p>
 					  <form action={{ url("cart/post") }} method="post" enctype="multipart/form-data">

@@ -57,7 +57,7 @@
 
                             </div>
 
-                            <div class="product_price">${{ $product_info->selling_price }}</div>
+                            <div class="product_price">৳ {{ $product_info->selling_price }}</div>
                             <div class="button_container">
                                 <input type="submit" class="button cart_button" value="Add to Cart" />
                                 <div class="product_fav"><i class="fas fa-heart"></i></div>

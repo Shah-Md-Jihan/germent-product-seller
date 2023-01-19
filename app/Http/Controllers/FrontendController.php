@@ -36,4 +36,11 @@ class FrontendController extends Controller
     $product_info = Product::find($product_id);
     return view("pages.single_product", compact('product_info'));
   }
+
+  public function shop()
+  {
+    return view('pages.shop', [
+      'products' => Product::latest()->paginate(3),
+    ]);
+  }
 }

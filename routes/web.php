@@ -65,6 +65,8 @@ Route::get('admin/coupon/delete/{coupon_id}', [CouponController::class, 'coupond
 // FrontendController Routes
 Route::post('newslatter/post', [FrontendController::class, 'storenewslatter'])->name('store.newslatter');
 
+Route::get('shop', [FrontendController::class, 'shop']);
+
 // NewslatterController Routes
 Route::get('newsletter', [NewslatterController::class, 'newsletter'])->name('newsletter');
 Route::get('newsletter/all/delete', [NewslatterController::class, 'newsletteralldel'])->name('all.del.newsletter');

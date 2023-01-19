@@ -28,7 +28,7 @@
             <ul class="standard_dropdown main_nav_dropdown">
               <li><a href="{{ url('/') }}">Home<i class="fas fa-chevron-down"></i></a></li>
               <li class="hassubs">
-                <a href="#">Shop</a>
+                <a href="{{ url('shop') }}">Shop</a>
               </li>
               <li class="hassubs">
                 <a href="#">About Us</a>
