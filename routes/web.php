@@ -9,6 +9,9 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewslatterController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +69,7 @@ Route::get('admin/coupon/delete/{coupon_id}', [CouponController::class, 'coupond
 Route::post('newslatter/post', [FrontendController::class, 'storenewslatter'])->name('store.newslatter');
 
 Route::get('shop', [FrontendController::class, 'shop']);
+Route::get('category/product/{category_id}', [FrontendController::class, 'categoryproduct']);
 
 // NewslatterController Routes
 Route::get('newsletter', [NewslatterController::class, 'newsletter'])->name('newsletter');
@@ -87,3 +91,9 @@ Route::get('get/subcategory/{category_id}', [ProductController::class, 'getSubca
 
 Route::get('cart', [CartController::class, 'index'])->name('cart');
 Route::post('cart/post', [CartController::class, 'addtocart']);
+
+// CheckoutController Routes 
+Route::get('checkout', [CheckoutController::class, 'checkout']);
+
+// OrderController Routes 
+Route::post('add/order', [OrderController::class, 'addorder']);

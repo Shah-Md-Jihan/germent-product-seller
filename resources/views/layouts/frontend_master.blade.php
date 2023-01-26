@@ -72,10 +72,11 @@
 								</ul>
 							</div>
 							<div class="top_bar_user">
+								
 								<div class="user_icon"><img src="{{ asset('frontend_assets') }}/images/user.svg" alt=""></div>
 								<div><a href="{{ route('register') }}">Register</a></div>
 								<div><a href="{{ route('login') }}">Sign in</a></div>
-								{{-- @endif --}}
+								
 							</div>
 						</div>
 					</div>

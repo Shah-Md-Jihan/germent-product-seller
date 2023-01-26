@@ -7,7 +7,7 @@
 	<!-- Home -->
 
 	<div class="shop_banner" id="overlay">
-		<h2>Our Shop</h2>
+		<h2>All {{ Str::title(App\Models\Category::find($category_id)->category_name) }} Products</h2>
 	</div>
 
 	<!-- Shop -->
@@ -34,9 +34,9 @@
 				<div class="col-lg-9">
 					
 					<!-- Shop Content -->
-                    <h5 class="text-primary">Total {{ App\Models\Product::all()->count() }} products</h5>
+                    <h5 class="text-primary">Total {{ App\Models\Product::where('category_id', $category_id)->count() }} products</h5>
                     <div class="row">
-                        @foreach ($products as $product)
+                         @foreach ($products as $product)
                         <div class="col-4 mb-5">
 							<div class="card">
 								<img src="{{ asset('uploads/product') }}/{{ $product->image1 }}" class="card-img-top p-2" style="height: 200px" alt="...">

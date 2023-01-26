@@ -43,4 +43,11 @@ class FrontendController extends Controller
       'products' => Product::latest()->paginate(3),
     ]);
   }
+
+  public function categoryproduct($category_id)
+  {
+    return view('pages.single_category_product', compact('category_id'), [
+      'products' => Product::where('category_id', $category_id)->paginate(3),
+    ]);
+  }
 }

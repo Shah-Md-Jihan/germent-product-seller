@@ -10,6 +10,14 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="cart_container">
+                    @if (session('empty_cart_alert'))
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>{{ session('empty_cart_alert') }}!</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    @endif
                     <div class="cart_title">Shopping Cart</div>
                     <div class="cart_items">
                         <ul class="cart_list">
@@ -59,8 +67,8 @@
                     </div>
 
                     <div class="cart_buttons">
-                        <a href="/" type="button" class="button cart_button_clear">Continue Shopping</a>
-                        <button type="button" class="button cart_button_checkout">Proceed to Checkout</button>
+                        <a href="{{ url('shop') }}" type="button" class="button cart_button_checkout">Continue Shopping</a>
+                        <a href="{{ url('checkout') }}" type="button" class="button cart_button_checkout">Proceed to Checkout</a>
                     </div>
                 </div>
             </div>

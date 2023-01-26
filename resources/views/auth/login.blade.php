@@ -28,7 +28,7 @@
     <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
     <meta name="author" content="ThemePixels">
 
-    <title>Starlight Responsive Bootstrap 4 Admin Template</title>
+    <title>EOGAS-Login</title>
 
     <!-- vendor css -->
     <link href="{{ asset('backend_assets') }}/lib/font-awesome/css/font-awesome.css" rel="stylesheet">

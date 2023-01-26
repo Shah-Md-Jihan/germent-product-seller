@@ -11,7 +11,7 @@
             <!-- Images -->
             <div class="col-lg-2 order-lg-1 order-2">
                 <ul class="image_list">
-                    {{-- <li data-image="images/single_4.jpg"><img src="{{ asset('uploads/product') }}/{{ $product_info->image1 }}" alt=""></li> --}}
+                    
                 </ul>
             </div>
 
