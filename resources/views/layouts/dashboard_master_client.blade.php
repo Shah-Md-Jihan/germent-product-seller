@@ -65,6 +65,13 @@
                     <span class="menu-item-label">Dashboard</span>
                   </div><!-- menu-item -->
                 </a><!-- sl-menu-link -->
+
+                <a href="{{ url('/') }}" class="sl-menu-link" target="_blank">
+                  <div class="sl-menu-item">
+                    <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
+                    <span class="menu-item-label">Visit Site</span>
+                  </div><!-- menu-item -->
+                </a><!-- sl-menu-link -->
                 
 
               </div><!-- sl-sideleft-menu -->
