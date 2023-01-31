@@ -17,7 +17,7 @@
             <ul class="cat_menu" id="categories">
 
               @foreach ($nav_menus as $menu)
-              <li><a href="#">{{ $menu->category_name }} <i class="fas fa-chevron-right ml-auto"></i></a></li>
+              <li><a href="{{ url('category/product') }}/{{ $menu->id }}">{{ $menu->category_name }} <i class="fas fa-chevron-right ml-auto"></i></a></li>
               @endforeach
             </ul>
           </div>
@@ -31,10 +31,10 @@
                 <a href="{{ url('shop') }}">Shop</a>
               </li>
               <li class="hassubs">
-                <a href="#">About Us</a>
+                <a href="{{ url('about') }}">About Us</a>
               </li>
-              <li><a href="blog.html">FAQ's</a></li>
-              <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
+              <li><a href="{{ url('faq') }}">FAQ's</a></li>
+              <li><a href="{{ url('contact') }}">Contact<i class="fas fa-chevron-down"></i></a></li>
             </ul>
           </div>
 

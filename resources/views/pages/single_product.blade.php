@@ -24,9 +24,22 @@
             <div class="col-lg-5 order-3">
                 <div class="product_description">
                     <div class="product_name">{{ $product_info->product_name }}</div>
-                    <div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div>
+                    @if (session('out_of_stock_error'))
+                        <p class="text-danger">{{ session('out_of_stock_error') }}</p>
+                    @endif
+                    <p>Available: @if ($product_info->quantity < 0)
+                        {{ '0' }}
+                        @else
+                        {{ $product_info->quantity }}
+                    @endif</p>
                     <div class="product_text"><p>{{ $product_info->details }}</p></div>
                     <div class="order_info d-flex flex-row">
+                        @if ($product_info->quantity <= 0)
+                            <div class="alert alert-danger">
+                                <strong>Out of Stock</strong>
+                            </div>
+                        @else
+                        
                         <form action={{ url("cart/post") }} method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="clearfix" style="z-index: 1000;">
@@ -64,6 +77,7 @@
                             </div>
                             
                         </form>
+                        @endif
                     </div>
                 </div>
             </div>

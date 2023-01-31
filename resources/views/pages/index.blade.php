@@ -94,6 +94,12 @@
 	<!-- Banner -->
 
 	<div class="banner">
+		@if (session('order_complete_alert'))
+		<div class="alert alert-success" role="alert">
+			{{ session('order_complete_alert') }}
+		  </div>
+		@endif  
+
 		<div class="banner_background" style="background-image:url(images/banner_background.jpg)"></div>
 		<div class="container fill_height">
 			<div class="row fill_height">
@@ -180,6 +186,9 @@
 					  <p class="text-primary"><b>৳ {{ $product->selling_price }}</b></p>
 					  <p class="card-text mb-3">{{ Str::limit($product->details, 50);
 					}}</p>
+					@if ($product->quantity <= 0)
+						<p class="text-danger"><strong>Out of Stock</strong></p>
+					@else
 					  <form action={{ url("cart/post") }} method="post" enctype="multipart/form-data">
 						@csrf		
 									<textarea style="display: none" name="pro_name">{{ $product->product_name }}</textarea>
@@ -193,6 +202,7 @@
 						
 								<input type="submit" class="btn btn-primary btn-block" value="Add To Cart" />
 					</form>
+					@endif
 					</div>
 				  </div>
 			</div>	

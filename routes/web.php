@@ -11,6 +11,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\StripePaymentController;
+
 
 
 /*
@@ -67,6 +69,9 @@ Route::get('admin/coupon/delete/{coupon_id}', [CouponController::class, 'coupond
 
 // FrontendController Routes
 Route::post('newslatter/post', [FrontendController::class, 'storenewslatter'])->name('store.newslatter');
+Route::get('/about', [FrontendController::class, 'about']);
+Route::get('/faq', [FrontendController::class, 'faq']);
+Route::get('/contact', [FrontendController::class, 'contact']);
 
 Route::get('shop', [FrontendController::class, 'shop']);
 Route::get('category/product/{category_id}', [FrontendController::class, 'categoryproduct']);
@@ -91,9 +96,14 @@ Route::get('get/subcategory/{category_id}', [ProductController::class, 'getSubca
 
 Route::get('cart', [CartController::class, 'index'])->name('cart');
 Route::post('cart/post', [CartController::class, 'addtocart']);
+Route::get('cart/delete/{cart_id}', [CartController::class, 'deletecart']);
 
 // CheckoutController Routes 
 Route::get('checkout', [CheckoutController::class, 'checkout']);
 
 // OrderController Routes 
 Route::post('add/order', [OrderController::class, 'addorder']);
+
+
+Route::get('stripe', [StripePaymentController::class, 'stripe']);
+Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');

@@ -49,10 +49,10 @@
 				<div class="row">
 					<div class="col d-flex flex-row">
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('frontend_assets') }}/images/phone.png" alt=""></div>+38 068 005 3570</div>
-						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('frontend_assets') }}/images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{ asset('frontend_assets') }}/images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">eogas@gmail.com</a></div>
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_menu">
-								<ul class="standard_dropdown top_bar_dropdown">
+								{{-- <ul class="standard_dropdown top_bar_dropdown">
 									<li>
 										<a href="#">English<i class="fas fa-chevron-down"></i></a>
 										<ul>
@@ -69,7 +69,7 @@
 											<li><a href="#">JPY Japanese Yen</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> --}}
 							</div>
 							<div class="top_bar_user">
 								
@@ -132,13 +132,13 @@
 					<!-- Wishlist -->
 					<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
 						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
-							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
+							{{-- <div class="wishlist d-flex flex-row align-items-center justify-content-end">
 								<div class="wishlist_icon"><img src="{{ asset('frontend_assets') }}/images/heart.png" alt=""></div>
 								<div class="wishlist_content">
 									<div class="wishlist_text"><a href="#">Wishlist</a></div>
 									<div class="wishlist_count">115</div>
 								</div>
-							</div>
+							</div> --}}
 
 							<!-- Cart -->
 							<div class="cart">
@@ -185,7 +185,6 @@
           <div class="newsletter_title_container">
             <div class="newsletter_icon"><img src="{{ asset('frontend_assets') }}/images/send.png" alt=""></div>
             <div class="newsletter_title">Sign up for Newsletter</div>
-            <div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
           </div>
           <div class="newsletter_content clearfix">
             <form action="{{ route('store.newslatter') }}" method="post" class="newsletter_form">
@@ -220,8 +219,8 @@
           <div class="footer_title">Got Question? Call Us 24/7</div>
           <div class="footer_phone">+38 068 005 3570</div>
           <div class="footer_contact_text">
-            <p>17 Princess Road, London</p>
-            <p>Grester London NW18JR, UK</p>
+            <p>Gazipur, Dhaka</p>
+            
           </div>
           <div class="footer_social">
             <ul>
@@ -239,27 +238,24 @@
         <div class="footer_column">
           <div class="footer_title">Find it Fast</div>
           <ul class="footer_list">
-            <li><a href="#">Computers & Laptops</a></li>
-            <li><a href="#">Cameras & Photos</a></li>
-            <li><a href="#">Hardware</a></li>
-            <li><a href="#">Smartphones & Tablets</a></li>
-            <li><a href="#">TV & Audio</a></li>
+            {{-- <li><a href="#">Computers & Laptops</a></li> --}}
+			@foreach (App\Models\Category::all() as $menu)
+              <li><a href="{{ url('category/product') }}/{{ $menu->id }}">{{ $menu->category_name }}</a></li>
+              @endforeach
           </ul>
-          <div class="footer_subtitle">Gadgets</div>
-          <ul class="footer_list">
-            <li><a href="#">Car Electronics</a></li>
-          </ul>
+          
         </div>
       </div>
 
       <div class="col-lg-2">
         <div class="footer_column">
           <ul class="footer_list footer_list_2">
-            <li><a href="#">Video Games & Consoles</a></li>
+            {{-- <li><a href="#">Video Games & Consoles</a></li>
             <li><a href="#">Accessories</a></li>
             <li><a href="#">Cameras & Photos</a></li>
             <li><a href="#">Hardware</a></li>
-            <li><a href="#">Computers & Laptops</a></li>
+            <li><a href="#">Computers & Laptops</a></li> --}}
+
           </ul>
         </div>
       </div>
@@ -267,15 +263,17 @@
       <div class="col-lg-2">
         <div class="footer_column">
           <div class="footer_title">Customer Care</div>
-          <ul class="footer_list">
-            <li><a href="#">My Account</a></li>
-            <li><a href="#">Order Tracking</a></li>
-            <li><a href="#">Wish List</a></li>
-            <li><a href="#">Customer Services</a></li>
-            <li><a href="#">Returns / Exchange</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">Product Support</a></li>
-          </ul>
+		  <ul class="footer_list">
+			<li><a href="{{ url('/') }}">Home</a></li>
+			<li class="hassubs">
+			  <a href="{{ url('shop') }}">Shop</a>
+			</li>
+			<li class="hassubs">
+			  <a href="{{ url('about') }}">About Us</a>
+			</li>
+			<li><a href="{{ url('faq') }}">FAQ's</a></li>
+			<li><a href="{{ url('contact') }}">Contact</a></li>
+		  </ul>
         </div>
       </div>
 

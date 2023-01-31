@@ -44,6 +44,21 @@ class FrontendController extends Controller
     ]);
   }
 
+  public function about()
+  {
+    return view('pages.about');
+  }
+
+  public function faq()
+  {
+    return view('pages.faq');
+  }
+
+  public function contact()
+  {
+    return view('pages.contact');
+  }
+
   public function categoryproduct($category_id)
   {
     return view('pages.single_category_product', compact('category_id'), [
