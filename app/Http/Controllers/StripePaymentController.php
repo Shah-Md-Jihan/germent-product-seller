@@ -47,6 +47,7 @@ class StripePaymentController extends Controller
         ]);
 
         foreach (Cart::where('ip_address', request()->ip())->get() as $cart) {
+            // Insert into Order List table
             OrderList::insert([
                 'order_id' => $order_id,
                 'user_id' => Auth::id(),
